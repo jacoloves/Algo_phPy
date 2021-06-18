@@ -11,16 +11,9 @@ int main() {
 
   int ans = N;
   
-  while(1) {
-    if (N / 10 != 0) {
-      target_num += N%10;
-      N /= 10;
-    } else if (target_num == 0) {
-      target_num = 1;
-      break;
-    } else {
-      break;
-    }
+  while(N) {
+    target_num += N%10;
+    N /= 10;
   }
 
   if (ans%target_num == 0) {
