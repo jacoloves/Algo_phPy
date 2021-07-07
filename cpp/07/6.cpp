@@ -7,15 +7,16 @@ using namespace std;
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 
 int main() {
-  string str1, str2;
-  cin >> str1;
-  cin >> str2;
+  int H, W;
+  cin >> H >> W;
 
+  char str_len[H][W];
 
-  if (str1.length() >= str2.length()) {
-    cout << str1 << endl;
-  } else {
-    cout << str2 << endl;
+  rep(i, H) {
+    cin >> str_len[i];
   }
 
+  rep(i, H){
+
+  }
 }

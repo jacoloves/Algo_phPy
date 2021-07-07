@@ -7,15 +7,9 @@ using namespace std;
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 
 int main() {
-  string str1, str2;
+  string str1;
   cin >> str1;
-  cin >> str2;
 
-
-  if (str1.length() >= str2.length()) {
-    cout << str1 << endl;
-  } else {
-    cout << str2 << endl;
-  }
+  cout << str1 + "pp" << endl;
 
 }
