@@ -10,7 +10,8 @@ int main() {
   int H, W;
   cin >> H >> W;
 
-  char str_len[H][W], ans_len[H][W];
+  char str_len[H][W];
+  string board[50];
 
   rep(i, H) {
     cin >> str_len[i];
@@ -118,16 +119,16 @@ int main() {
               cnt++;
           }
         }
-      ans_len[i][j] = (char)cnt;
+      board[i][j] = char(cnt + '0');
       } else {
-        ans_len[i][j] = '#';
+        board[i][j] = '#';
       }
-    } 
+    }
   }
 
   rep(i, H){
     rep(j, W){
-      cout << ans_len[i][j];
+      cout << board[i][j];
     }
     cout << endl;
   }
