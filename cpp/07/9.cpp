@@ -21,7 +21,11 @@ int main() {
 
   rep(i, h+2) {
     rep(j, w+2) {
-      if (i >= 1 && i )
+      if (i >= 1 || i <= h) {
+        if (j != 0 || j != w) {
+          v2.at(i).at(j) = v.at(i-1).at(j-1);
+        }
+      }
       v2.at(i).at(j) = '#';
     }
   }
