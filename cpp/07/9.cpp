@@ -19,16 +19,26 @@ int main() {
   
   vector<string> v2(h+2);
 
+  string sharp_str;
+
+  rep(i, w+2) {
+    sharp_str += '#';
+  }
+
   rep(i, h+2) {
-    rep(j, w+2) {
-      if (i >= 1 || i <= h) {
-        if (j != 0 || j != w) {
-          v2.at(i).at(j) = v.at(i-1).at(j-1);
-        }
-      }
-      v2.at(i).at(j) = '#';
+    if (i >= 1 && i <= h) {
+      v2.at(i) = '#' + v.at(i-1) + '#';
+    } else {
+      v2.at(i) = sharp_str;
     }
   }
+
+  rep(i, h+2) {
+    cout << v2.at(i) << endl;
+  }
+
+  
+
 
 }
 
