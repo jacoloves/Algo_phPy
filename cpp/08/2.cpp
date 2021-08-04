@@ -20,8 +20,16 @@ int verif_func(vector<vector<int>> &a) {
         if(i == 0){
           if(j == 0){
             if ((a.at(i).at(j+1) == 1 || a.at(i+1).at(j) == 1) && a.at(i).at(j) == 1)
-              ex_cnt == 0;
-          }else if(j == 9)
+              ex_cnt++;
+          }else if(j == 9){
+            if ((a.at(i).at(j-1) == 1 || a.at(i+1).at(j) == 1) && a.at(i).at(j) == 1)
+              ex_cnt++;
+          }else{
+            if ((a.at(i).at(j-1) == 1 || a.at(i).at(j+1) == 1 || a.at(i+1).at(j) == 1) && a.at(i).at(j) == 1)
+              ex_cnt++;
+          }
+        }else if(i == 9){
+          
         }
       }
     }
