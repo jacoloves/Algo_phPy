@@ -28,6 +28,6 @@ int main() {
         tmp += S.back() - '0';
         res += tmp;
     }
-    cout << res << emdl;
+    cout << res << endl;
 }
 
