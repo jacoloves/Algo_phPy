@@ -62,6 +62,8 @@ struct Clock {
 
         if (hour < 10) {
            str_h = "0" + to_string(hour);
+        } else if(hour >= 24) {
+           str_h = to_string(hour-24);
         } else {
            str_h = to_string(hour);
         }
@@ -98,10 +100,12 @@ struct Clock {
 
         sec_clock = (hour * 3600) + (minute * 60) + second;
 
-        if (sec_clock - diff_second < 0) {
-            ret_sec = 86400 - abs(sec_clock - diff_second);
+        int ans_num = sec_clock + diff_second;
+
+        if (ans_num < 0) {
+            ret_sec = 86400 - abs(ans_num);
         } else {
-            ret_sec = 86400 - (sec_clock - diff_second);
+            ret_sec = ans_num; 
         }
 
         hour = int(ret_sec / 3600);
