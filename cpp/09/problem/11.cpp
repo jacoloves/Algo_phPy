@@ -26,16 +26,39 @@ int main() {
     ll A, B, C;
     cin >> A >> B >> C;
 
-    ll pow1, pow2;
-    pow1 = pow(A,C);
-    pow2 = pow(B,C);
+    // ll pow1 = 1;
+    // ll pow2 = 1;
+    // for (int i=0; i<C; i++) {
+    //     pow1 *= A;
+    //     pow2 *= B;
+    // }
 
-    if (pow1 > pow2) {
-        cout << ">" << endl;
-    } else if(pow1 < pow2) {
-        cout << "<" << endl;
+    // if (pow1 > pow2) {
+    //     cout << ">" << endl;
+    // } else if(pow1 < pow2) {
+    //     cout << "<" << endl;
+    // } else {
+    //     cout << "=" << endl;
+    // }
+
+    // even
+    if (C % 2 == 0) {
+        if (abs(A) > abs(B)) {
+            cout << "<" << endl;
+        } else if (abs(A) < abs(B)) {
+            cout << ">" << endl;
+        } else {
+            cout << "=" << endl;
+        }
     } else {
-        cout << "=" << endl;
+        // odd
+        if (abs(A) > abs(B)) {
+            cout << ">" << endl;
+        } else if (abs(A) < abs(B)) {
+            cout << "<" << endl;
+        } else {
+            cout << "=" << endl;
+        }
     }
 }
 
