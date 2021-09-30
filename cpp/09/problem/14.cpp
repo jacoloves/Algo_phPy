@@ -25,10 +25,22 @@ int main() {
     int N;
     cin >> N;
 
-    vector<int> vec(N);
+    vector<ll> vec(N);
 
     for(int i=0; i<N; i++) {
         cin >> vec.at(i);
     }
+
+    int cnt = 0;
+
+    for(int i=0; i<N; i++) {
+        for(int j=i+1; j<N; j++) {
+            if (vec.at(i) != vec.at(j)) {
+                cnt++;
+            }
+        }
+    }
+
+    cout << cnt << endl;
 }
 
