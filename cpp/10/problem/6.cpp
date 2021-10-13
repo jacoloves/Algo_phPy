@@ -21,47 +21,22 @@ typedef long long ll;
 
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 
-int factorial_calc(int n) {
-    int ret_num = 1;
-    for (int i=1; i<=n; i++){
-        ret_num *= i;
-    }
-
-    return ret_num;
-}
-
 int main() {
-    int p;
-    cin >> p;
+    ll n, k;
+    cin >> n >> k;
 
-    int fact = 0;
-    int f_cnt = 1;
-    int ans = 0;
+    vector<ll> a(n);
+    vector<ll> vec(n);
 
-    while(true) {
-        fact = factorial_calc(f_cnt);
-        if (fact > p) {
-            break;
-        }
-        f_cnt++;
+    rep(i,n) {
+        cin >> a.at(i);
+        vec.at(i) = a.at(i); 
     }
 
-    while(true) {
-        fact = factorial_calc(f_cnt);
-        if (p/fact > 100) {
-            ans += 100;
-            p = (p%fact) + (p/fact - 100) * fact;
-        } else {
-            ans += p / fact;
-            p = p % fact;
-        }
+    sort(vec.begin(), vec.end());
 
-        f_cnt--;
-
-        if (p == 0)
-            break;
+    rep(i,n) {
+        cout << a.at(i) << endl;
     }
-
-    cout << ans << endl;
 }
 
