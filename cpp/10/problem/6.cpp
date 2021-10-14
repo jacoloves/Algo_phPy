@@ -27,6 +27,7 @@ int main() {
 
     vector<ll> a(n);
     vector<ll> vec(n);
+    vector<ll> candy(n);
 
     rep(i,n) {
         cin >> a.at(i);
