@@ -1,0 +1,46 @@
+#include <iostream> // cout, endl, cin
+#include <string> // string, to_string, stoi
+#include <vector> // vector
+#include <algorithm> // min, max, swap, sort, reverse, lower_bound, upper_bound
+#include <utility> // pair, make_pair
+#include <tuple> // tuple, make_tuple
+#include <cstdint> // int64_t, int*_t
+#include <cstdio> // printf
+#include <map> // map
+#include <queue> // queue, priority_queue
+#include <set> // set
+#include <stack> // stack
+#include <deque> // deque
+#include <unordered_map> // unordered_map
+#include <unordered_set> // unordered_set
+#include <bitset> // bitset
+#include <cctype> // isupper, islower, isdigit, toupper, tolower
+
+using namespace std;
+typedef long long ll;
+#define rep(i,n) for (int i = 0; i < (int)(n); ++i)
+using P = pair<int, int>;
+
+vector<int> compress(vector<int> a) {
+    int n = a.size();
+    map<int, int> mp;
+    rep(i, n) mp[a[i]] = 0;
+    int id = 1;
+    for (auto& p : mp) p.second = id++;
+    rep(i, n) a[i] = mp[a[i]];
+    return a;
+}
+
+int main() {
+    int h, w, n;
+    cin >> h >> w >> n;
+    vector<int> a(n), b(n);
+    rep(i,n) cin >> a[i] >> b[i];
+    a = compress(a);
+    b = compress(b);
+    rep(i, n) {
+        printf("%d %d\n", a[i], b[i]);
+    }
+
+    return 0;
+}
