@@ -15,6 +15,7 @@
 #include <unordered_set> // unordered_set
 #include <bitset> // bitset
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
+#include <iomanip>
 
 using namespace std;
 typedef long long ll;
@@ -29,7 +30,8 @@ int main() {
     int r = a % b;
     double f = (double)a / b;
 
-    cout << d << r 
+    cout << d << " " << r << " ";
+    printf("%.8lf\n", f);
 
     return 0;
 }
