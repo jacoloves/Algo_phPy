@@ -22,16 +22,12 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int a, b, c;
+    int a;
+    cin >> a;
 
-    cin >> a >> b >> c;
+    double b = a / 100.0;
 
-    int cnt = 0;
-    for (int i=a; i<=b; i++){
-        if (c % i == 0) cnt++;
-    }
-
-    cout << cnt << endl;
+    cout << b << endl;
 
     return 0;
 }

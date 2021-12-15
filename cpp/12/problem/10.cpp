@@ -22,13 +22,39 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int a;
-    int i = 1;
+    int a, b;
+    char op;
 
-    while(true){
-        cin >> a;
-        if (a == 0) break;
-        cout << "Case" << i << ": " << a << endl;
+    vector<int> a_v(20000);
+    vector<int> b_v(20000);
+    vector<char> op_v(20000);
+
+    int i = 0;
+
+    while(true) {
+        cin >> a >> op >> b;
+        if (op == '?') break;
+        a_v.at(i) = a;
+        b_v.at(i) = b;
+        op_v.at(i) = op;
+        i++;
+    }
+
+    for (int j=0; j<=i-1; ++j){
+        switch(op_v.at(j)){
+            case '+':
+                cout << a_v.at(j) + b_v.at(j) << endl;
+                break;
+            case '-':
+                cout << a_v.at(j) - b_v.at(j) << endl;
+                break;
+            case '*':
+                cout << a_v.at(j) * b_v.at(j) << endl;
+                break;
+            case '/':
+                cout << a_v.at(j) / b_v.at(j) << endl;
+                break;
+        }
     }
 
     return 0;

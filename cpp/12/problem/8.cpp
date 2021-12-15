@@ -15,6 +15,7 @@
 #include <unordered_set> // unordered_set
 #include <bitset> // bitset
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
+#include <iomanip>
 
 using namespace std;
 typedef long long ll;
@@ -22,19 +23,15 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int W, H, x, y, r;
+    int a, b;
+    cin >> a >> b;
 
-    cin >> W >> H >> x >> y >> r;
+    int d = a / b;
+    int r = a % b;
+    double f = (double)a / b;
 
-    int x2, y2;
-    x2 = x + r;
-    y2 = y + r;
-
-    if (W < x2 || H < y2 || r > x2 || r > y2 ) {
-        cout << "No" << endl;
-    } else {
-        cout << "Yes" << endl;
-    }
+    cout << d << " " << r << " ";
+    printf("%.8lf\n", f);
 
     return 0;
 }

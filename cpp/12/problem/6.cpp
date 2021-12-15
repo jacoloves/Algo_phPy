@@ -22,13 +22,19 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int a, b, c;
-    cin >> a >> b >> c;
+     vector<int> v(10000);
+     vector<int> v2(10000);
 
-    if (a < b && b < c) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+    int i = 0;
+    int num, num2;
+    while(true){
+        cin >> v.at(i) >> v2.at(i); 
+        if (v[i] == 0 && v2[i] == 0) break;
+        i++;
+    }
+
+    for(int j=0; j<i; j++){
+        cout << min(v[j], v2[j]) << " " << max(v[j], v2[j]) << endl;
     }
 
     return 0;

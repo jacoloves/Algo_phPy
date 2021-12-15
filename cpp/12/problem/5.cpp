@@ -22,16 +22,19 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int a, b;
+    vector<int> v(10000);
 
-    cin >> a >> b;
+    int i = 0;
+    int num;
+    while(true){
+        cin >> num;
+        if (num == 0) break;
+        v[i] = num;
+        i++;
+    }
 
-    if (a < b) {
-        cout << "a < b" << endl;
-    } else if (a > b) {
-        cout << "a > b" << endl;
-    } else {
-        cout << "a == b" << endl;
+    for (int j = 0; j < i; j++){
+        cout << "Case " << j+1 << ": " << v[j] << endl;
     }
 
     return 0;

@@ -22,16 +22,30 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int a, b, c;
+    int a;
+    cin >> a;
+    vector<string> v(a);
 
-    cin >> a >> b >> c;
-
-    int cnt = 0;
-    for (int i=a; i<=b; i++){
-        if (c % i == 0) cnt++;
+    rep(i, a){
+       cin >> v[i];
+    }
+    
+    map<string, int> mp;
+    rep(i, a) {
+        mp[v[i]]++;
     }
 
-    cout << cnt << endl;
+    int maxv = 0;
+    string maxkey;
+    auto begin = mp.begin(), end = mp.end();
+    for (auto iter = begin; iter != end; iter++) {
+        if (maxv < iter->second){
+            maxkey = iter->first;
+            maxv = iter->second;
+        }
+    }
+    
+    cout << maxkey << endl;
 
     return 0;
 }

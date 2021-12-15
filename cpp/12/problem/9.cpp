@@ -21,10 +21,16 @@ typedef long long ll;
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 using P = pair<int, int>;
 
+const double PI = 3.141592653589;
+
 int main() {
-    for (int i = 0; i< 1000; i++) {
-        cout << "Hello World" << endl;
-    }
+    double n;
+    cin >> n;
+
+    double area = (double)(PI * n * n);
+    double circle = (double)2 * PI * n;
+
+    printf("%.6lf %.6lf\n", area, circle);
 
     return 0;
 }
