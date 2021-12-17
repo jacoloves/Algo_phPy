@@ -21,34 +21,28 @@ typedef long long ll;
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 using P = pair<int, int>;
 
-void include_num(int x, int i) {
-    if (x % 10 == 3) {
-        cout << " " << i;
-        return;
-    }
-
-    x /= 10;
-    if (x){
-        include_num(x, i);
-    }
-}
-
-void check_num(int x, int i){
-   
-}
-
 int main() {
-    int n = 0;
+    int n;
     cin >> n;
+    vector<int> v1(n);
+    vector<int> v2(n);
 
-    for (int i=1; i<=n; ++i){
-        int x = i;
-        
-        if (x % 3 == 0) {
-            cout << " " << i;
-            continue;
-        }   
-        include_num(x, i);
+    rep(i, n){
+        cin >> v1.at(i);
+    }
+
+    int j = 0;
+    for(int i=n-1; i>=0; i--){
+        v2[j] = v1[i];
+        j++;
+    }
+    
+    for (int i = 0; i < n; i++) {
+        if (i == n-1) {
+            cout << v2[i];
+        } else {
+            cout << v2[i] << " ";
+        }
     }
 
     cout << endl;
