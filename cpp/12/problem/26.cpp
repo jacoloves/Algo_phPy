@@ -23,17 +23,21 @@ using P = pair<int, int>;
 
 int main() {
 
-    int ans[25]; 
+    int ans[26]; 
     char ans_char[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
     char ch;
+
+    for(int i=0; i<sizeof(ans)/sizeof(ans[0]); ++i) {
+        ans[i] = 0;
+    }
 
     while(cin >> ch) {
         int num = tolower(ch) - 'a';
         ans[num]++;
     }
 
-    for (int i=0; i<25; i++) {
+    for (int i=0; i<26; i++) {
         cout << ans_char[i] << " : " << ans[i] << endl;
     }
 
