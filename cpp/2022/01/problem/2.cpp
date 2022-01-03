@@ -22,38 +22,21 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    string w;
-    cin >> w;
-    
-    string ans;
-    string trans_ans = "";
+    string word = "";
     string trans_word = "";
     int cnt = 0;
-    /*
+    int shuffle_num = 0;
+    string ans_word[1000000007];
+
     while (true) {
-       cin >> ans;
-       if (ans == "END_OF_TEXT") break;
-       trans_ans = ans;
-       trans_word = word;
-       transform(ans.begin(), ans.end(), trans_ans.begin(), tolower);
-       transform(w.begin(), w.end(), trans_word.begin(), tolower);
-       if (trans_ans == trans_word) cnt++;
-    }
-    */
-    for (int i=0; i<w.length(); i++) {
-         trans_word += tolower(w[i]);
-    }
-
-    while(true) {
-        cin >> ans;
-        if (ans == "END_OF_TEXT") break;
-        for (int i=0; i<ans.length(); i++) {
-            trans_ans += tolower(ans[i]);
+        cin >> word;
+        if (word == "-") break;
+        cin >> cnt;
+        for (int i = 0; i < cnt; ++i){
+            cin >> shuffle_num;
+            for(int j=shuffle_num; j<word; j++)
         }
-        if (trans_ans == trans_word) cnt++;
-        trans_ans = "";
-    }
 
-    cout << cnt << endl;
+    }
     return 0;
 }
