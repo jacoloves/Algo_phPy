@@ -24,19 +24,38 @@ using P = pair<int, int>;
 int main() {
     string word = "";
     string trans_word = "";
+    string commit_word = "";
     int cnt = 0;
     int shuffle_num = 0;
-    string ans_word[1000000007];
+    int shuffle_num_row[100];
+    string ans_word[100000];
+    int row_cnt = 0;
 
     while (true) {
         cin >> word;
         if (word == "-") break;
         cin >> cnt;
+        trans_word = word;
         for (int i = 0; i < cnt; ++i){
             cin >> shuffle_num;
-            for(int j=shuffle_num; j<word; j++)
+            shuffle_num_row[i] = shuffle_num;
         }
+        for (int j = 0; j < cnt; j++) {
+          for (int k = shuffle_num_row[j]; k<trans_word.length(); k++){
+            commit_word += trans_word[k];
+          }
+          for(int l=0; l<shuffle_num_row[j]; l++) {
+            commit_word += trans_word[l];
+          }
+          trans_word = commit_word;
+          commit_word = "";
+        }
+        ans_word[row_cnt] = trans_word;
+        row_cnt++;
+    }
 
+    for (int i=0; i<row_cnt; i++) {
+      cout << ans_word[i] << endl;
     }
     return 0;
 }
