@@ -44,14 +44,21 @@ int main() {
         }
 
         if (order == "reverse") {
+            string rev_str = "";
+            int rev_cnt = 0;
             for(int j=b; j>=a; j--) {
                 ans_str += str[j];
             }
-            cout << ans_str << endl;
-            cout << str << endl;
 
-            str.replace(a, b, ans_str);
-            cout << str << endl;
+            for (int j=0; j<str.length(); j++) {
+               if (j >= a && j <= b)  {
+                   rev_str += ans_str[rev_cnt];
+                   rev_cnt++;
+               } else {
+                    rev_str += str[j];
+               }
+            }
+            str = rev_str;
         }
 
         if (order == "replace") {
