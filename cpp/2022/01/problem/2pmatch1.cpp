@@ -82,10 +82,44 @@ FLOW didfs(Grafh &G, int v, int t, FLOW f) {
     if (v == t) return f;
     for (int &i = iter[v]; i < G[v].size(); ++i) {
         Edge &e = G[v][i], &re = G.redge(e);
-        if (level[v] )
+        if (level[v] < level[e.to] && e.cap > 0) {
+            FLOW d = didfs(G, e.to, t, min(f, e.cap));
+            if (d > 0) {
+                e.cap -= d;
+                re.cap += d;
+                return d;
+            }
+        }
+    }
+    return 0;
+}
+
+FLOW Dinic(Graph &G, int s, int t) {
+    FLOW res = 0;
+    while (true) {
+        dibfs(G, s);
+        if (level[t] < 0) return res;
+        memset(iter, 0, sizeof(iter));
+        FLOW flow;
+        while ((flow = didfs(G, s, t, INF)) > 0) {
+            res += flow;
+        }
     }
 }
-int main() {
 
+int main() {
+    
+    int men[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int women[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    int NUM_MEN = 0, NUM_WOMEN = 0;
+    cin >> NUM_MEN >> NUM_WOMEN;
+
+    Graph G(NUM_MEN + NUM_WOMEN + 2);
+
+    int S_node = NUM_MEN + NUM_WOMEN;
+    int T_node = NUM_MEN + NUM_WOMEN + 1;
+
+    
     return 0;
 }
