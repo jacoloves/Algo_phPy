@@ -16,6 +16,7 @@
 #include <bitset> // bitset
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
 #include <cmath> // sqrt, pow, sin, fabs, cos
+#include <cstring>
 
 using namespace std;
 typedef long long ll;
@@ -78,12 +79,12 @@ void dibfs(Graph &G, int s) {
     }
 }
 
-FLOW didfs(Grafh &G, int v, int t, FLOW f) {
+FLOW dibfs(Graph &G, int v, int t, FLOW f) {
     if (v == t) return f;
     for (int &i = iter[v]; i < G[v].size(); ++i) {
         Edge &e = G[v][i], &re = G.redge(e);
         if (level[v] < level[e.to] && e.cap > 0) {
-            FLOW d = didfs(G, e.to, t, min(f, e.cap));
+            FLOW d = dibfs(G, e.to, t, min(f, e.cap));
             if (d > 0) {
                 e.cap -= d;
                 re.cap += d;
@@ -101,7 +102,7 @@ FLOW Dinic(Graph &G, int s, int t) {
         if (level[t] < 0) return res;
         memset(iter, 0, sizeof(iter));
         FLOW flow;
-        while ((flow = didfs(G, s, t, INF)) > 0) {
+        while ((flow = dibfs(G, s, t, INF)) > 0) {
             res += flow;
         }
     }
@@ -120,6 +121,36 @@ int main() {
     int S_node = NUM_MEN + NUM_WOMEN;
     int T_node = NUM_MEN + NUM_WOMEN + 1;
 
+    for(int i=0; i<NUM_MEN; ++i) {
+        for (int j=0; j<NUM_WOMEN; ++j) {
+            char isok;
+            cin >> isok;
+
+            if (isok == 'o') {
+                G.addedge(i, j + NUM_MEN, 1);
+            }
+        }
+    }
+
+    for (int i = 0; i < NUM_MEN; ++i) {
+        G.addedge(S_node, i, 1);
+    }
+
+    for (int j = 0; j < NUM_WOMEN; ++j) {
+        G.addedge(j + NUM_MEN, T_node, 1);
+    }
+
+    FLOW res = Dinic(G, S_node, T_node);
+
+    cout << "Max Size of Matching: " << res << endl;
+
+    for (int i = 0; i < NUM_MEN; ++i) {
+        for (auto e : G[i]) {
+            if (e.icap == 1 && e.cap == 0) {
+                cout << "Man " << men[i] << " and " << "Woman " << women[e.to - NUM_MEN] << " are matched " << endl;
+            }
+        }
+    }
     
     return 0;
 }
