@@ -30,7 +30,7 @@ struct Edge {
     int rev, from, to;
     FLOW cap, icap;
     COST cost;
-    Edge(int r, int f, int t, FLOW ca, COST co) : rev(r), from(f), to(t), cap(ca), icap(ca)
+    Edge(int r, int f, int t, FLOW ca, COST co) : rev(r), from(f), to(t), cap(ca), icap(ca), cost(co) {}
 };
 
 struct Graph {
@@ -66,9 +66,9 @@ COST MinCostFlow(Graph &G, int s, int t, FLOW inif) {
         dist[s] = 0;
         while(true) {
             bool update = false;
-            for (int v = 0; v < G.V; ++V){
+            for (int v = 0; v < G.V; ++v){
                 if (dist[v] == INF) continue;
-                for (int i = 0; i < G[V].size(); ++i) {
+                for (int i = 0; i < G[v].size(); ++i) {
                     Edge &e = G[v][i];
                     if (e.cap > 0 && dist[e.to] > dist[v] + e.cost) {
                         dist[e.to] = dist[v] +e.cost;
