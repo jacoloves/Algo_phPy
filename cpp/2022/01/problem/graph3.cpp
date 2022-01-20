@@ -15,28 +15,36 @@
 #include <unordered_set> // unordered_set
 #include <bitset> // bitset
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
-#include <cmath> // sqrt, pow, sin, fabs, cos
 
 using namespace std;
 typedef long long ll;
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 using P = pair<int, int>;
+using Graph = vector<vector<int>>;
 
-struct Edge {
-    int to;
-    int weight;
-    Edge(int t, int w) : to(t), weight(w) {}
-};
-using Graph = vector<vector<Edge>>;
+vector<bool> seen;
+void dfs(const Graph &G, int v) {
+    seen[v] = true;
+
+    for (auto next_v : G[v]) {
+        if (seen[next_v]) continue;
+        dfs(G, next_v);
+    }
+}
 
 int main() {
     int N, M; cin >> N >> M;
 
     Graph G(N);
     for (int i = 0; i < M; ++i) {
-        int from , to , weight;
-        cin >> from >> to >> weight;
-        G[from].push_back(Edge(to, weight));
+        int a, b;
+        cin >> a >> b;
+        G[a].push_back(b);
+        G[b].push_back(a);
     }
+
+    seen.assign(N, false);
+    dfs(G, 0);
+
     return 0;
 }
