@@ -43,9 +43,9 @@ int main() {
     
     for (int i=0; i<n; i++) {
         if (mp.find(av[i]) != mp.end()) {
-           mp[av[i]]++;
+           mp[av[i]] = i+1;
         } else {
-            mp[av[i]] = 1;
+            mp[av[i]] = i+1;
         }
     }
 
