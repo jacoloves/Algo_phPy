@@ -22,43 +22,24 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    string s1, s2, s3;
+    int N;
+    cin >> N;
 
-    cin >> s1;
-    cin >> s2;
-    cin >> s3;
+    vector<int> p(N), q(N);
 
-    map<string, int> mp;
-
-    mp.insert(make_pair("ABC", 0));
-    mp.insert(make_pair("ARC", 0));
-    mp.insert(make_pair("AGC", 0));
-    mp.insert(make_pair("AHC", 0));
-
-    if (mp.find(s1) != mp.end()) {
-       mp[s1]++;
-    } else {
-        mp[s1]++;
+    for(int i=0; i<N; ++i) {
+        cin >> p[i];
     }
 
-    if (mp.find(s2) != mp.end()) {
-       mp[s2]++;
-    } else {
-        mp[s2]++;
+    for (int i=0; i<N; ++i) {
+        q[p[i]-1] = i+1;
     }
 
-    if (mp.find(s3) != mp.end()) {
-       mp[s3]++;
-    } else {
-        mp[s3]++;
+    for (int i=0; i<N; ++i) {
+        cout << q[i] << " ";
     }
 
-    for (auto i = mp.begin(); i != mp.end(); ++i) {
-        if (i->second == 0) {
-            cout << i->first << endl;
-            break;
-        }
-    }
-
+    cout << endl;
+    
     return 0;
 }
