@@ -22,28 +22,14 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int N;
-    cin >> N;
+    string s, t;
+    cin >> s >> t;
 
-    int sum = 0;
-    string str;
-
-    sum++;
-    str += "A";
-
-    while(true) {
-        if (sum == N) break;
-
-        if (sum*2 <= N) {
-            sum = sum*2;
-            str = str + "B";
-        } else {
-            sum++;
-            str = str + "A";
-        }
+    if (s < t) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
-
-    cout << str << endl;
 
     return 0;
 }

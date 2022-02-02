@@ -25,25 +25,21 @@ int main() {
     int N;
     cin >> N;
 
-    int sum = 0;
-    string str;
+    vector<int> p(N), q(N);
 
-    sum++;
-    str += "A";
-
-    while(true) {
-        if (sum == N) break;
-
-        if (sum*2 <= N) {
-            sum = sum*2;
-            str = str + "B";
-        } else {
-            sum++;
-            str = str + "A";
-        }
+    for(int i=0; i<N; ++i) {
+        cin >> p[i];
     }
 
-    cout << str << endl;
+    for (int i=0; i<N; ++i) {
+        q[p[i]-1] = i+1;
+    }
 
+    for (int i=0; i<N; ++i) {
+        cout << q[i] << " ";
+    }
+
+    cout << endl;
+    
     return 0;
 }

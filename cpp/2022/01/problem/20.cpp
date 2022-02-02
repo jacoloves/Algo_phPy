@@ -22,28 +22,43 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int N;
-    cin >> N;
+    string s1, s2, s3;
 
-    int sum = 0;
-    string str;
+    cin >> s1;
+    cin >> s2;
+    cin >> s3;
 
-    sum++;
-    str += "A";
+    map<string, int> mp;
 
-    while(true) {
-        if (sum == N) break;
+    mp.insert(make_pair("ABC", 0));
+    mp.insert(make_pair("ARC", 0));
+    mp.insert(make_pair("AGC", 0));
+    mp.insert(make_pair("AHC", 0));
 
-        if (sum*2 <= N) {
-            sum = sum*2;
-            str = str + "B";
-        } else {
-            sum++;
-            str = str + "A";
-        }
+    if (mp.find(s1) != mp.end()) {
+       mp[s1]++;
+    } else {
+        mp[s1]++;
     }
 
-    cout << str << endl;
+    if (mp.find(s2) != mp.end()) {
+       mp[s2]++;
+    } else {
+        mp[s2]++;
+    }
+
+    if (mp.find(s3) != mp.end()) {
+       mp[s3]++;
+    } else {
+        mp[s3]++;
+    }
+
+    for (auto i = mp.begin(); i != mp.end(); ++i) {
+        if (i->second == 0) {
+            cout << i->first << endl;
+            break;
+        }
+    }
 
     return 0;
 }
