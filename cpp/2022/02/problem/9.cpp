@@ -21,6 +21,13 @@ typedef long long ll;
 #define rep(i,n) for (int i = 0; i < (int)(n); ++i)
 using P = pair<int, int>;
 
+bool win(char a, char b) {
+    if (a == 'G' && b == 'C') return true;
+    if (a == 'C' && b == 'P') return true;
+    if (a == 'P' && b == 'G') return true;
+    return false;
+}
+
 int main() {
     int N, M;
     cin >> N >> M;
@@ -31,15 +38,23 @@ int main() {
         cin >> v[i];
     }
 
-    map<string, int> mp; // mapping
+    vector<P> d(N*2);
 
     for (int i=0; i<2*N; ++i) {
-        mp.insert(make_pair(i, 0));
+        d[i] = P(0,i);
     }
 
-    for (int i=0; i<2*N; i+=2) {
-
+    for(int mi=0; mi<M; ++mi) {
+        for (int ni=0; ni<N; ++ni) {
+            int i = ni*2, j = ni*2+1;
+            int di = d[i].second, dj = d[j].second;
+            if (win(v[di][mi],v[dj][mi])) d[i].first--;
+            if (win(v[dj][mi],v[di][mi])) d[j].first--;
+        }
+        sort(d.begin(), d.end());
     }
-
+    for (int i=0; i<N*2; ++i) {
+        cout << d[i].second+1 << endl;
+    }
     return 0;
 }
