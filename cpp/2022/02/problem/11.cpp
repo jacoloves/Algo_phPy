@@ -26,22 +26,30 @@ int main() {
     cin >> str;
 
     string chg = "";
-
-    //cout << "test" << endl;
+    string minS = "";
+    string maxS = "";
 
     for (int i=0; i<str.length(); i++) {
         int cnt = 0;
-        //cout << "test2" << endl;
         for (int j=i; j<str.length()*2-1; j++) {
             if (cnt == str.length()) break;
             if (j >= str.length()) j = j - str.length();
             chg = chg + str[j];
-            //cout << "test3" << endl;
             cnt++;
         }
-        cout << chg << endl;
+        // compare
+        if (minS == "" && maxS == "") {
+            minS = chg;
+            maxS = chg;
+        } else {
+            if (chg < minS) minS = chg;
+            if (chg > maxS) maxS = chg;
+        }
         chg = "";
     }
+
+    cout << minS << endl;
+    cout << maxS << endl;
 
     return 0;
 }
