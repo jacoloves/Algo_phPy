@@ -38,7 +38,7 @@ int main() {
         ans += (double)(pv[i].first) / ((double)pv[i].second);
     }
 
-    printf("%0.10f\n", ans/2);
+    printf("%0.10f\n", ans);
 
     return 0;
 }
