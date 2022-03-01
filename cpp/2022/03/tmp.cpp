@@ -22,39 +22,6 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    int h, w;
-    cin >> h >> w;
-
-    vector<vector<int>> v(h, vector<int>(w));
-
-    for (int i=0; i<h; ++i) {
-        for (int j=0; j<w; ++j) {
-            cin >> v[i][j];
-        }
-    }
-
-    bool flg = true;
-
-    for (int i=0; i<h-1; ++i) {
-        for (int si=i+1; si<h; ++si) {
-            for (int j=0; j<w-1; ++j) {
-                for (int sj=j+1; sj<w; ++sj) {
-                    int la = v[i][j] + v[si][sj];
-                    int ra = v[si][j] + v[i][sj];
-                    if (la > ra) {
-                        flg = false;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    if (flg) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
 
     return 0;
 }
