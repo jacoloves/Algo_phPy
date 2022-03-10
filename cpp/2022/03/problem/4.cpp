@@ -26,11 +26,16 @@ int main() {
     int n;
     cin >> n;
 
-    for (int i=0; i<n; ++i) {
-        int o;
-        cin >> o;
-    }
+    set<vector<int>> st;
 
+    for (int i =0; i<n; ++i) {
+        int l;
+        cin >> l;
+        vector<int> v(l);
+        for (int j=0; j<l; ++j) cin >> v[j];
+        st.insert(v);
+    }
+    cout << st.size() << endl;
 
     return 0;
 }
