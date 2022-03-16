@@ -28,5 +28,27 @@ int main() {
 
     vector<int> v(n);
 
+    for (int i=0; i<n; ++i) {
+        cin >> v[i];
+    }
+
+    int cnt = 0;
+
+    for (int i=0; i<n; ++i) {
+        bool flg = false;
+        for (int a=1; a<=1000; ++a) {
+            for (int b=1; b<=1000; ++b) {
+                if ((4*a*b + 3*a + 3*b) == v[i]) {
+                    flg = true;
+                    cnt++;
+                }
+                if (flg) break;
+            }
+            if (flg) break;
+        }
+    }
+
+    cout << n - cnt << endl;
+
     return 0;
 }
