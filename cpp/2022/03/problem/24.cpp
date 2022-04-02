@@ -29,25 +29,48 @@ int main() {
     string line1 = "oxx";
     string line2 = "xox";
     string line3 = "xxo";
-    int cnt = 0;
-    int moji_cnt = 0;
 
 
     string judge_moji = "";
 
-    for (int i=0; i<3; i++) {
-        judge_moji += moji[i];
+    if (moji.length() >= 3) {
+        for (int i=0; i<3; i++) {
+            judge_moji += moji[i];
+        }
+    } else {
+        if (moji == "ox" || moji == "xo" || moji == "xx" || moji == "o" || moji == "x") {
+            cout << "Yes" << endl;
+        } else {
+            cout << "No" << endl;
+        }
+        return 0;
     }
 
     string std_line = "";
-    if (line1 == judge_moji) std_line = line1;
-    else if (line2 == judge_moji) std_line = line2;
-    else if (line3 == judge_moji) std_line = line3;
-    else return;
-    
-    for (int i=0; i<moji.length(); i++) {
-        
+    if (line1 == judge_moji) {
+        std_line = line1;
+    } else if (line2 == judge_moji) {
+        std_line = line2;
+    } else if (line3 == judge_moji) {
+        std_line = line3;
+    } else {
+        cout << "No" << endl;
+        return 0;
     }
+    
+    int cnt = 0;
+    bool flg = true;
+    for (int i=0; i<moji.length(); i++) {
+        if (moji[i] != std_line[cnt]) {
+            flg = false;
+            break;
+        }
+        cnt++;
+        if (cnt == 3) cnt = 0;
+    }
+
+    if (flg) cout << "Yes" << endl;
+    else cout << "No" << endl;
 
     return 0;
 }
