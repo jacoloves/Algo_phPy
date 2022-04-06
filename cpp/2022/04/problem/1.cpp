@@ -23,14 +23,6 @@ typedef long long ll;
 using P = pair<int, int>;
 
 int main() {
-    // char c1 = 'z';
-    // char c2 = 'a';
-
-    // int diff_num = c2 - c1;
-    // if (diff_num < 0) diff_num += 26;
-
-    // cout << char(c1 - 26 + diff_num) << endl;
-
     string str1, str2;
     cin >> str1 >> str2;
 
@@ -41,9 +33,23 @@ int main() {
 
     if (diff_num < 0) diff_num += 26;
 
+    bool flg = true;
     for (int i=1; i<str1.length(); i++) {
-        
+        if (str1[i] + diff_num > 'z') {
+            if (char(str1[i] - 26 + diff_num) != str2[i]) {
+                flg = false;
+                break;
+            }
+        } else {
+            if (char(str1[i] + diff_num) != str2[i]) {
+                flg = false;
+                break;
+            }
+        }
     }
+
+    if (flg) cout << "Yes" << endl;
+    else cout << "No" << endl;
 
     return 0;
 }
