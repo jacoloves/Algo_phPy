@@ -24,8 +24,17 @@ using P = pair<int, int>;
 int main() {
     string str;
     cin >> str;
-    str.erase(unique(str.begin(), str.end()), str.end());
+    string ans;
 
-    cout << str.length() << endl;
+    ans += str[0];
+    for (int i = 1; i<str.length(); ++i) {
+        int cnt = 0;
+        for (int j=0; j<ans.length(); ++j) {
+            if (str[i] != ans[j]) cnt++;
+        }
+        if (cnt == ans.length()) ans += str[i];
+    }
+
+    cout << ans.length() << endl;
     return 0;
 }
