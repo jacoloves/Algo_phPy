@@ -27,7 +27,7 @@ int main() {
     string str;
     cin >> str;
 
-    regex reg{R"(\(.+\))"};
+    regex reg{R"(^\w+@\w+\.\w$)"};
     smatch m;
 
     bool search = regex_search(str, m, reg);

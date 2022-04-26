@@ -27,7 +27,7 @@ int main() {
     string str;
     cin >> str;
 
-    regex reg{R"(\(.+\))"};
+    regex reg{R"(\d{3,})"};
     smatch m;
 
     bool search = regex_search(str, m, reg);
