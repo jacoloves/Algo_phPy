@@ -26,13 +26,12 @@ using P = pair<int, int>;
 int main() {
     string str;
     cin >> str;
+    
+    for (int i=1; i<str.length() - 1; i++) {
+        if (str[i-1] == 'r' && str[i+1] == 'r' && str[i] == 'u') str[i] = 'a';
+    }
 
-    regex reg{R"(^[a-zA-Z0-9]+\@[a-z0-9A-Z]+\.[a-zA-Z0-9]{1,4}$)"};
-    smatch m;
-
-    bool search = regex_search(str, m, reg);
-    if (search) cout << "Yes" << endl;
-    else cout << "No" << endl;
+    cout << str << endl;
 
     return 0;
 }
