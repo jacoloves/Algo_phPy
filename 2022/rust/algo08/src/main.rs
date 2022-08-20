@@ -13,7 +13,110 @@ fn main() {
     //abc_b();
     //aoj_1a();
     //aoj_1b();
-    aoj_1c();
+    //aoj_1c();
+    //aoj_1d();
+    //aoj_2a()
+    //aoj_2b();
+    //aoj_2c();
+    aoj_2d();
+}
+
+fn aoj_2d() {
+    let line: Vec<i32> = read_line();
+    let w: i32 = line[0];
+    let h: i32 = line[1];
+    let x: i32 = line[2];
+    let y: i32 = line[3];
+    let r: i32 = line[4];
+
+    let min_x: i32 = x - r;
+    let min_y: i32 = y - r;
+    let pla_x: i32 = x + r;
+    let pla_y: i32 = y + r;
+
+    if 0 > min_x || 0 > min_y {
+        println!("No");
+    } else if pla_x > w || pla_y > h {
+        println!("No");
+    } else {
+        println!("Yes");
+    }
+}
+
+fn aoj_2c() {
+    let x: Vec<i32> = read_line();
+    let a: i32 = x[0];
+    let b: i32 = x[1];
+    let c: i32 = x[2];
+    
+    /*
+    if (a <= b && b <= c) {
+        cout << a << " " << b << " " << c << endl;
+    } else if (a >= b && b >= c){
+        cout << c << " " << b << " " << a << endl;
+    } else if (a <= b && b >= c && a <= c) {
+        cout << a << " " << c << " " << b << endl;
+    } else if (a <= b && b >= c && a >= c) {
+        cout << c << " " << a << " " << b << endl;
+    } else if (a >= b && b <= c && a <= c) {
+        cout << b << " " << a << " " << c << endl;
+    } else if (a >= b && b <= c && a >= c) {
+        cout << b << " " << c << " " << a << endl;
+    }
+    */
+
+    if a <= b && b <= c {
+        println!("{} {} {}", a, b, c);
+    } else if a >= b && b >= c {
+        println!("{} {} {}", c, b, a);
+    } else if a <= b && b >= c && a <= c {
+        println!("{} {} {}", a, c, b);
+    } else if a <= b && b >= c && a >= c {
+        println!("{} {} {}", c, a, b);
+    } else if a >= b && b <= c && a <= c {
+        println!("{} {} {}", b, a, c);
+    } else if a >= b && b <= c && a >= c {
+        println!("{} {} {}", b, c, a);
+    }
+    
+}
+
+fn aoj_2b() {
+    let x: Vec<i32> = read_line();
+    let a: i32 = x[0];
+    let b: i32 = x[1];
+    let c: i32 = x[2];
+
+    if a < b && b < c {
+        println!("Yes");
+    } else {
+        println!("No");
+    }
+}
+
+fn aoj_2a() {
+    let x: Vec<i32> = read_line();
+    let a: i32 = x[0];
+    let b: i32 = x[1];
+
+    if a < b {
+        println!("a < b");
+    } else if a > b {
+        println!("a > b");
+    } else {
+        println!("a == b");
+    }
+}
+
+fn aoj_1d() {
+    let x: Vec<i32> = read_line();
+    let mut s: i32 = x[0];
+
+    let h = s / 3600;
+    s = s % 3600;
+    let m = s / 60;
+    s = s % 60;
+    println!("{}:{}:{}", h, m, s);
 }
 
 fn aoj_1c() {
